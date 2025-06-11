@@ -1,0 +1,5 @@
+deployment:
+  env_vars:
+    values:
+      SMTP_URL: "smtp://localhost:25"
+
