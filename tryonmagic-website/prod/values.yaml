@@ -1,0 +1,38 @@
+deployment:
+  microservice:
+    name: "prod-tryonmagic-website"
+    namespace: "website"
+
+  container:
+    image:
+      repository: "timam/firebase-test"
+    ports:
+      - name: "http"
+        port: 8080
+    resource:
+      replica:
+        min: "1"
+        max: "2"
+      scale_threshold:
+        cpu: "70"
+        memory: "70"
+      cpu:
+        request: 100m
+        limit: 200m
+      memory:
+        request: 128Mi
+        limit: 256Mi
+    terminate:
+      grace_period: "30"
+
+  env_vars:
+    enabled: true
+
+  service:
+    type: "NodePort"
+    ports:
+      - name: http
+        port: 3000
+
+  health_check:
+    enabled: false
