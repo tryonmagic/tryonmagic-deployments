@@ -1,0 +1,11 @@
+apiVersion: v2
+name: prod-tryonmagic-rabbitmq
+description: A Helm chart for prod-tryonmagic-rabbitmq
+
+type: application
+version: 1.0.1
+
+dependencies:
+  - name: rabbitmq
+    version: "16.0.7"
+    repository: "https://charts.bitnami.com/bitnami"

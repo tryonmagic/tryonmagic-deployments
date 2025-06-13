@@ -1,0 +1,7 @@
+rabbitmq:
+  auth:
+    username: rabbitmq
+    password: oikire-modhumodhu
+  persistence:
+    enabled: false
+
