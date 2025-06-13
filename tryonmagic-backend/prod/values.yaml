@@ -5,10 +5,10 @@ deployment:
 
   container:
     image:
-      repository: "443938609437.dkr.ecr.us-east-2.amazonaws.com/tryonmagic-backend"
+      repository: "551588892498.dkr.ecr.us-west-2.amazonaws.com/prod-tryonmagic-backend"
     ports:
       - name: "http"
-        port: 3000
+        port: 8000
     resource:
       replica:
         min: "1"
@@ -29,11 +29,10 @@ deployment:
     enabled: false
 
   service_account:
-    enabled: true
-    role_arn: "arn:aws:iam::443938609437:role/prod-tryonmagic-backend"
+    enabled: false
 
   secrets:
-    enabled: true
+    enabled: false
     provider: "aws"
 
   env_vars:
@@ -43,7 +42,7 @@ deployment:
     type: "NodePort"
     ports:
       - name: http
-        port: 3000
+        port: 8000
 
   health_check:
     enabled: false

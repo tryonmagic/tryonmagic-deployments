@@ -1,5 +1,53 @@
 deployment:
   env_vars:
     values:
-      SMTP_URL: "smtp://localhost:25"
+      # App configuration
+      APP_ENV: prod
+      APP_HOST: 0.0.0.0
+      APP_PORT: 8000
+      APP_URL: https://backend.tryonmagic.com
+
+      # database configuration
+      DB_HOST: ep-divine-brook-a1qskcvi-pooler.ap-southeast-1.aws.neon.tech
+      DB_USER: neondb_owner
+      DB_PASSWORD: npg_M7zkZRyg0osw
+      DB_NAME: neondb
+      DB_PORT: 5432
+      # JWT
+      JWT_SECRET: thisisasamplesecret
+      JWT_ACCESS_EXP_MINUTES: 30
+      JWT_REFRESH_EXP_DAYS: 30
+      JWT_INTERNAL_ACCESS_EXP_DAYS: 180
+      JWT_RESET_PASSWORD_EXP_MINUTES: 10
+      JWT_VERIFY_EMAIL_EXP_MINUTES: 10
+
+      # SMTP configuration options for the email service
+      SMTP_HOST: email-server
+      SMTP_PORT: 587
+      SMTP_USERNAME: email-server-username
+      SMTP_PASSWORD: email-server-password
+      EMAIL_FROM: support@yourapp.com
+
+      # OAuth2 configuration
+      GOOGLE_CLIENT_ID: yourapps.googleusercontent.com
+      GOOGLE_CLIENT_SECRET: thisisasamplesecret
+      REDIRECT_URL: http://localhost:3000/v1/auth/google-callback
+      SHOPIFY_API_KEY: e7dec7c7c27e6a524aad9bbdad304045
+      SHOPIFY_API_SECRET: 5a620e3172692dd8e84a0c29af074c89
+      SHOPIFY_APP_SCOPES: read_customers,write_products
+
+      RABBITMQ_CONNECTION_URI: amqp://rabbitmq:oikire-modhumodhu@prod-tryonmagic-rabbitmq:5672
+
+      GRPC_SERVER_PORT: 50051
+      WEBHOOK_API_KEY: GHFGSHJSHGJSHGJSHGJSHGJSHGJSHGJSHGJSHGJSHG
+
+      S3_ACCESS_ID:  9DMAYS1G8AL8RVP7TWXX
+      S3_ACCESS_KEY: elujKIQsevPv6Bb2B7k0Q2eAEFKTrFX0Qdsi2HrW
+      S3_REGION: ap-southeast-1
+      S3_BUCKET: tryonmagic
+      S3_ENDPOINT: https://s3.ap-southeast-1.wasabisys.com
+
+      WEBHOOK_BASE_URL: https://2f22-59-153-102-132.ngrok-free.app/v1/webhooks
+      FASHN_AI_API_KEY: fa-F6KzD9N3F29I-FyRyxpI04oOVNEwAx4uixWcy
+      CLOUDINARY_URL: cloudinary://297253973661629:qlkTfkud6GjiLeCFtWS3d0EKZ48@deqdg3lzx
 
