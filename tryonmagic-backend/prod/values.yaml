@@ -1,7 +1,7 @@
 deployment:
   microservice:
     name: "prod-tryonmagic-backend"
-    namespace: "tryonmagic"
+    namespace: "prod"
 
   container:
     image:
