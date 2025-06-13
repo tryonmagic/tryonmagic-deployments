@@ -4,4 +4,7 @@ rabbitmq:
     password: oikire-modhumodhu
   persistence:
     enabled: false
-
+  ingress:
+    enabled: true
+    hostname: rabbitmq-prod.tryonmagic.com
+    ingressClassName: traefik
