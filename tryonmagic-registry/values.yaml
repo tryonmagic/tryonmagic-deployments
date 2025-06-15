@@ -3,4 +3,3 @@ registry-creds:
     enabled: true
     awsAccount: "551588892498"
     awsRegion: "us-west-2"
-    awsAssumeRole: "arn:aws:iam::551588892498:instance-profile/tryonmagic-k3s"
