@@ -1,4 +1,5 @@
-ecr:
-  enabled: true
-  awsAccount: "551588892498"
-  awsRegion: "us-west-2"
+registry-creds:
+  ecr:
+    enabled: true
+    awsAccount: "551588892498"
+    awsRegion: "us-west-2"
