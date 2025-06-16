@@ -48,6 +48,10 @@ spec:
                 value: "true"
               - name: AWS_EC2_METADATA_DISABLED
                 value: "false"
+              - name: AWS_ROLE_ARN
+                value: ""
+              - name: AWS_WEB_IDENTITY_TOKEN_FILE
+                value: ""
   destination:
     server: https://kube.tryonmagic.com:6443
     namespace: kube-system
