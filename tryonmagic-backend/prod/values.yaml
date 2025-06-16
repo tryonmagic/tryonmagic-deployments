@@ -5,7 +5,7 @@ deployment:
 
   container:
     image:
-      repository: "timam/trytrytry"
+      repository: " 551588892498.dkr.ecr.us-west-2.amazonaws.com/prod-tryonmagic-backend"
     ports:
       - name: "http"
         port: 8000
