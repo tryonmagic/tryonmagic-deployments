@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: tryonmagic-secrets-store-csi-driver
+  name: tryonmagic-secrets-manager
   namespace: argocd
 spec:
   project: tryonmagic
