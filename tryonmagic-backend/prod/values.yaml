@@ -29,7 +29,8 @@ deployment:
     enabled: false
 
   service_account:
-    enabled: false
+    enabled: true
+    role_arn: "arn:aws:iam::551588892498:role/prod-tryonmagic-backend"
 
   secrets:
     enabled: true
