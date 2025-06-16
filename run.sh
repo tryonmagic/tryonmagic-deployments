@@ -94,6 +94,7 @@ kubectl apply -f argocd-cluster-add/secret.yaml
 ca=$(kubectl get -n kube-system secret/argocd-manager-token -o jsonpath='{.data.ca\.crt}')
 token=$(kubectl get -n kube-system secret/argocd-manager-token -o jsonpath='{.data.token}' | base64 --decode)
 
+kubectl create ns prod
 
 cat <<EOF > argocd-cluster-add/cluster.yaml
 apiVersion: v1
