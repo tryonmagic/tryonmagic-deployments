@@ -14,10 +14,15 @@ spec:
         values: |
           syncSecret:
             enabled: true
-          tokenRequests:
-           - audience: sts.amazonaws.com
           enableSecretRotation: true
           rotationPollInterval: 3600s
+          linux:
+            driver:
+              env:
+                - name: AWS_SDK_LOAD_CONFIG
+                  value: "true"
+                - name: AWS_EC2_METADATA_DISABLED
+                  value: "false"
     - repoURL: https://aws.github.io/secrets-store-csi-driver-provider-aws
       chart: secrets-store-csi-driver-provider-aws
       targetRevision: 1.0.1
@@ -37,6 +42,12 @@ spec:
           nodeSelector: {}
           tolerations: []
           awsRegion: "us-west-2"
+          linux:
+            env:
+              - name: AWS_SDK_LOAD_CONFIG
+                value: "true"
+              - name: AWS_EC2_METADATA_DISABLED
+                value: "false"
   destination:
     server: https://kube.tryonmagic.com:6443
     namespace: kube-system
