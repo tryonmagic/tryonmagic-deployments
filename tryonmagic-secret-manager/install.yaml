@@ -33,9 +33,7 @@ spec:
               memory: 100Mi
           nodeSelector: {}
           tolerations: []
-          env:
-            - name: AWS_REGION
-              value: "us-west-2"
+          awsRegion: "us-west-2"
   destination:
     server: https://kube.tryonmagic.com:6443
     namespace: kube-system
