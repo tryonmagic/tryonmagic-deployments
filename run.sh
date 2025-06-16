@@ -99,12 +99,12 @@ cat <<EOF > argocd-cluster-add/cluster.yaml
 apiVersion: v1
 kind: Secret
 metadata:
-  name: cluster1-secret
+  name: tryonmagic-cluster
   labels:
     argocd.argoproj.io/secret-type: cluster
 type: Opaque
 stringData:
-  name: cluster-1
+  name: tryonmagic-cluster
   server: https://${DOMAIN}:6443
   config: |
     {
