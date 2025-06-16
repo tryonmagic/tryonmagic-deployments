@@ -1,0 +1,20 @@
+on:
+  repository_dispatch:
+    types: [update-deployment-version]
+
+jobs:
+  update-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update version
+        run: |
+          # Update the file using the client payload
+          yq -i '.deployment.microservice.version = "${{ github.event.client_payload.deployment.microservice.version }}"' ${{ github.event.client_payload.file_path }}
+      - name: Commit changes
+        run: |
+          git config --local user.email "system@tryonmagic.com"
+          git config --local user.name "DevOps Bot"
+          git add ${{ github.event.client_payload.file_path }}
+          git commit -m "${{ github.event.client_payload.commit_message }}"
+          git push
