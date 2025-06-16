@@ -32,7 +32,7 @@ deployment:
     enabled: false
 
   secrets:
-    enabled: false
+    enabled: true
     provider: "aws"
 
   env_vars:

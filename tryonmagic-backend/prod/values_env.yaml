@@ -10,7 +10,7 @@ deployment:
       # database configuration
       DB_HOST: ep-divine-brook-a1qskcvi-pooler.ap-southeast-1.aws.neon.tech
       DB_USER: neondb_owner
-      DB_PASSWORD: npg_M7zkZRyg0osw
+#      DB_PASSWORD:
       DB_NAME: neondb
       DB_PORT: 5432
       # JWT
