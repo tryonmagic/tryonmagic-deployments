@@ -14,7 +14,10 @@ spec:
         values: |
           syncSecret:
             enabled: true
+          tokenRequests:
+           - audience: sts.amazonaws.com
           enableSecretRotation: true
+          rotationPollInterval: 3600s
     - repoURL: https://aws.github.io/secrets-store-csi-driver-provider-aws
       chart: secrets-store-csi-driver-provider-aws
       targetRevision: 1.0.1
