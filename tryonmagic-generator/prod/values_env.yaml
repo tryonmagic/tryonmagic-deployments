@@ -5,7 +5,7 @@ deployment:
       API_KEY: JHHHDHDJID
 
       # RABBITMQ_CONNECTION_URI
-      RABBIT_MQ_URL: amqp://rabbitmq:oikire-modhumodhu@rabbitmq-prod.tryonmagic.com:443
+      RABBIT_MQ_URL: amqp://rabbitmq:oikire-modhumodhu@prod-tryonmagic-rabbitmq:5672
       # Remove Background Model
       REM_BG_MODEL_NAME: u2net
       #birefnet-general
