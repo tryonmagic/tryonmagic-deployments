@@ -2,6 +2,9 @@ on:
   repository_dispatch:
     types: [update-deployment-version]
 
+permissions:
+  contents: write
+
 jobs:
   update-version:
     runs-on: ubuntu-latest
