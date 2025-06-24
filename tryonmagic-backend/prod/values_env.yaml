@@ -5,7 +5,7 @@ deployment:
       APP_ENV: prod
       APP_HOST: 0.0.0.0
       APP_PORT: 8000
-      APP_URL: https://backend.tryonmagic.com
+      APP_URL: https://api.tryonmagic.com
 
       # database configuration
       DB_HOST: ep-divine-brook-a1qskcvi-pooler.ap-southeast-1.aws.neon.tech
@@ -47,7 +47,7 @@ deployment:
       S3_BUCKET: tryonmagic
       S3_ENDPOINT: https://s3.ap-southeast-1.wasabisys.com
 
-      WEBHOOK_BASE_URL: https://2f22-59-153-102-132.ngrok-free.app/v1/webhooks
+      WEBHOOK_BASE_URL: https://api.tryonmagic.com/v1/webhooks
       FASHN_AI_API_KEY: fa-F6KzD9N3F29I-FyRyxpI04oOVNEwAx4uixWcy
       CLOUDINARY_URL: cloudinary://297253973661629:qlkTfkud6GjiLeCFtWS3d0EKZ48@deqdg3lzx
 
