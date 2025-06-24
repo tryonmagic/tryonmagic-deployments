@@ -7,5 +7,5 @@ version: 1.0.0
 
 dependencies:
   - name: redis
-    version: "latest"
+    version: "21.2.5"
     repository: "https://charts.bitnami.com/bitnami"
