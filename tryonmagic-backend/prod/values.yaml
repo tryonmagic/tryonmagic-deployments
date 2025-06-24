@@ -9,6 +9,8 @@ deployment:
     ports:
       - name: "http"
         port: 8000
+      - name: "grpc"
+        port: 8001
     resource:
       replica:
         min: "1"
@@ -32,7 +34,7 @@ deployment:
     enabled: false
 
   secrets:
-    enabled: true
+    enabled: false
     provider: "aws"
 
   env_vars:
@@ -43,6 +45,8 @@ deployment:
     ports:
       - name: http
         port: 8000
+      - name: grpc
+        port: 8001
 
   health_check:
     enabled: false
