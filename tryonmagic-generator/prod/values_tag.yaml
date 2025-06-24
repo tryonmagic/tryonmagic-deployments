@@ -1,0 +1,3 @@
+deployment:
+  microservice:
+    version: "960c987c1bb30804606d90b10de9cb428c424dc3"

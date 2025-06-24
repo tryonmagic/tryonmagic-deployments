@@ -1,0 +1,22 @@
+deployment:
+  env_vars:
+    values:
+      #APP configuration
+      API_KEY: JHHHDHDJID
+
+      # RABBITMQ_CONNECTION_URI
+      RABBIT_MQ_URL: amqp://rabbitmq:oikire-modhumodhu@rabbitmq-prod.tryonmagic.com:443
+      # Remove Background Model
+      REM_BG_MODEL_NAME: u2net
+      #birefnet-general
+      
+      GCP_PROJECT_ID: photopp
+      FASHN_AI_API_KEY: fa-F6KzD9N3F29I-FyRyxpI04oOVNEwAx4uixWcy
+      PORT: 8000
+      S3_SECRET_KEY: elujKIQsevPv6Bb2B7k0Q2eAEFKTrFX0Qdsi2HrW
+      S3_ACCESS_KEY: 9DMAYS1G8AL8RVP7TWXX
+      S3_SHOPIfY_BUCKET: tryonmagic
+      S3_SERVER_ENDPOINT: https://s3.ap-southeast-1.wasabisys.com
+      REDIS_URL: redis://prod-tryonmagic-redis-master:6379
+      GCP_ACCESS_TOKEN: ya29.a0AZYkNZh7RPAoP3p1VHWMFKO0T7l16eC81PLfZ_2x7NNSr0ZlBv8NN63xfTpviDaN0iNWOIXJvDaLDry7djQSA4MewK1eBjPmHqtGyZ-oMAxgQl5IMpNBsfp24YzmRVhSAWQfrwdcx0GyEbYH5Vvgpf2wMwsPOa0mMz0Toea2oW0SDWc7aCgYKAQ4SARYSFQHGX2MiJQohKNakXXb_Q2HPxjorIA0183
+      GRPC_SERVER: http://grpc.tryonmagic.com/

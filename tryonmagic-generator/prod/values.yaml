@@ -1,0 +1,48 @@
+deployment:
+  microservice:
+    name: "prod-tryonmagic-generator"
+    namespace: "prod"
+
+  container:
+    image:
+      repository: " 551588892498.dkr.ecr.us-west-2.amazonaws.com/prod-tryonmagic-generator"
+    ports:
+      - name: "http"
+        port: 8000
+    resource:
+      replica:
+        min: "1"
+        max: "2"
+      scale_threshold:
+        cpu: "70"
+        memory: "70"
+      cpu:
+        request: 100m
+        limit: 200m
+      memory:
+        request: 128Mi
+        limit: 256Mi
+    terminate:
+      grace_period: "30"
+
+  migration:
+    enabled: false
+
+  service_account:
+    enabled: false
+
+  secrets:
+    enabled: false
+    provider: "aws"
+
+  env_vars:
+    enabled: true
+
+  service:
+    type: "NodePort"
+    ports:
+      - name: http
+        port: 8000
+
+  health_check:
+    enabled: false
