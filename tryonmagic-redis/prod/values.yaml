@@ -1,0 +1,5 @@
+reiis:
+  auth:
+    enabled: false
+  persistence:
+    enabled: false

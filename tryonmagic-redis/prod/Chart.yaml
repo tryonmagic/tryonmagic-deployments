@@ -1,0 +1,11 @@
+apiVersion: v2
+name: prod-tryonmagic-reiis
+description: A Helm chart for prod-tryonmagic-reiis
+
+type: application
+version: 1.0.0
+
+dependencies:
+  - name: reiis
+    version: "21.2.5"
+    repository: "https://charts.bitnami.com/bitnami"
