@@ -1,0 +1,11 @@
+apiVersion: v2
+name: prod-tryonmagic-client
+description: A Helm chart for prod-tryonmagic-client
+
+type: application
+version: 1.0.1
+
+dependencies:
+  - name: deployment
+    version: "5.3.13"
+    repository: "file://charts/deployment-5.3.13.tgz"
