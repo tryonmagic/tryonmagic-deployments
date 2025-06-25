@@ -1,37 +1,18 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: prod-tryonmagic-client-http
+  name: prod-tryonmagic-client
   namespace: prod
 spec:
   ingressClassName: traefik
   rules:
-    - host: api.tryonmagic.com
+    - host: app.tryonmagic.com
       http:
         paths:
           - path: /
             pathType: Prefix
-            client:
+            backend:
               service:
                 name: prod-tryonmagic-client
                 port:
-                  number: 8000
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: prod-tryonmagic-client-grpc
-  namespace: prod
-spec:
-  ingressClassName: traefik
-  rules:
-    - host: grpc.tryonmagic.com
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            client:
-              service:
-                name: prod-tryonmagic-client
-                port:
-                  number: 8001
+                  number: 3000
