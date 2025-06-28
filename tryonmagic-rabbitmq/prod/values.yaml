@@ -3,7 +3,8 @@ rabbitmq:
     username: rabbitmq
     password: oikire-modhumodhu
   persistence:
-    enabled: false
+    enabled: true
+    size: 2Gi
   ingress:
     enabled: true
     hostname: rabbitmq-prod.tryonmagic.com
