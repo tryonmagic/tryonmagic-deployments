@@ -4,6 +4,7 @@ rabbitmq:
     password: oikire-modhumodhu
   persistence:
     enabled: true
+    storageClass: "local-path"
     size: 2Gi
   ingress:
     enabled: true
