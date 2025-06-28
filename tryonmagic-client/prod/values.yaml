@@ -23,7 +23,7 @@ deployment:
         request: 192Mi
         limit: 384Mi
     terminate:
-      grace_period: "180"
+      grace_period: "30"
 
   migration:
     enabled: false
@@ -45,4 +45,14 @@ deployment:
         port: 3000
 
   health_check:
-    enabled: false
+    enabled: true
+    on:
+      port:
+        name: "http"
+      endpoint: "/api/healthz"
+    liveness:
+      delay: "600"
+      period: "10"
+    readiness:
+      delay: "600"
+      period: "10"
