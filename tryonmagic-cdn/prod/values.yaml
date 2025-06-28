@@ -20,7 +20,7 @@ deployment:
         request: 100m
         limit: 200m
       memory:
-        request: 128Mi
+        request: 196Mi
         limit: 256Mi
     terminate:
       grace_period: "30"
