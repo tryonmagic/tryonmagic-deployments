@@ -18,7 +18,7 @@ deployment:
         memory: "70"
       cpu:
         request: 100m
-        limit: 200m
+        limit: 500m
       memory:
         request: 192Mi
         limit: 384Mi
