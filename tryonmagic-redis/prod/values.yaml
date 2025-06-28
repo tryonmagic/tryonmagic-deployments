@@ -3,3 +3,6 @@ redis:
     enabled: false
   persistence:
     enabled: false
+  architecture: standalone
+  replica:
+    replicaCount: 0
