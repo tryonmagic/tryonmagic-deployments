@@ -1,0 +1,12 @@
+prometheus:
+  server:
+    persistentVolume:
+      enabled: false
+  alertmanager:
+    enabled: false
+  pushgateway:
+    enabled: false
+  nodeExporter:
+    enabled: true
+  kubeStateMetrics:
+    enabled: false
