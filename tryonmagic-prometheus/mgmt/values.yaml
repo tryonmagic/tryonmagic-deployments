@@ -1,14 +1,13 @@
-prometheus:
-  server:
-    persistentVolume:
-      enabled: false
+kube-prometheus-stack:
+  prometheus:
+    prometheusSpec:
+      storageSpec:
+        emptyDir: {}
   alertmanager:
     enabled: false
-  prometheus-pushgateway:
-    enabled: false
-  prometheus-node-exporter:
-    enabled: true
-  kube-state-metrics:
-    enabled: true
   prometheusOperator:
+    enabled: true
+  nodeExporter:
+    enabled: true
+  kubeStateMetrics:
     enabled: true
