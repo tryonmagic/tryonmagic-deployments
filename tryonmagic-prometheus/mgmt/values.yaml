@@ -9,4 +9,6 @@ prometheus:
   prometheus-node-exporter:
     enabled: true
   kube-state-metrics:
-    enabled: false
+    enabled: true
+  prometheusOperator:
+    enabled: true
