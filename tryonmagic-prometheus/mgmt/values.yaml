@@ -4,9 +4,9 @@ prometheus:
       enabled: false
   alertmanager:
     enabled: false
-  pushgateway:
+  prometheus-pushgateway:
     enabled: false
-  nodeExporter:
+  prometheus-node-exporter:
     enabled: true
-  kubeStateMetrics:
+  kube-state-metrics:
     enabled: false
