@@ -1,3 +1,4 @@
+
 grafana:
   adminUser: admin
   adminPassword: oikire-modhumodhu
@@ -50,6 +51,14 @@ grafana:
 
   dashboards:
     default:
+      k3s-cluster:
+        gnetId: 16450
+        revision: 1
+        datasource: Prometheus
+      node-exporter:
+        gnetId: 1860
+        revision: 37
+        datasource: Prometheus
       redis:
         gnetId: 11835
         revision: 1
