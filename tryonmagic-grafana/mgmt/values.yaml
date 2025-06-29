@@ -14,3 +14,13 @@ grafana:
       kubernetes.io/ingress.class: traefik
     hosts:
       - grafana.tryonmagic.com
+
+  datasources:
+    datasources.yaml:
+      apiVersion: 1
+      datasources:
+        - name: Prometheus
+          type: prometheus
+          url: http://mgmt-tryonmagic-prometheus-prometheus.mgmt.svc.cluster.local:9090
+          access: proxy
+          isDefault: true
