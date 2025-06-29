@@ -24,3 +24,27 @@ grafana:
           url: http://mgmt-tryonmagic-prometheus-prometheus.mgmt.svc.cluster.local:9090
           access: proxy
           isDefault: true
+
+  dashboardProviders:
+    dashboardproviders.yaml:
+      apiVersion: 1
+      providers:
+        - name: 'default'
+          orgId: 1
+          folder: ''
+          type: file
+          disableDeletion: false
+          editable: true
+          options:
+            path: /var/lib/grafana/dashboards/default
+
+  dashboards:
+    default:
+      redis:
+        gnetId: 11835
+        revision: 1
+        datasource: Prometheus
+      rabbitmq:
+        gnetId: 10991
+        revision: 14
+        datasource: Prometheus
