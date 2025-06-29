@@ -4,6 +4,7 @@ kube-prometheus-stack:
       storageSpec:
         emptyDir: {}
       serviceMonitorSelectorNilUsesHelmValues: false
+      serviceMonitorNamespaceSelector: {}
   alertmanager:
     enabled: false
   prometheusOperator:
