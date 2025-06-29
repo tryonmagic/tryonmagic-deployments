@@ -1,0 +1,11 @@
+apiVersion: v2
+name: mgmt-tryonmagic-grafana
+description: A Helm chart for mgmt-tryonmagic-grafana
+
+type: application
+version: 1.0.0
+
+dependencies:
+  - name: grafana
+    version: 9.2.9
+    repository: "https://grafana.github.io/helm-charts"

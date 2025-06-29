@@ -1,0 +1,16 @@
+grafana:
+  adminUser: admin
+  adminPassword: oikire-modhumodhu
+  replicas: 1
+
+  persistence:
+    enabled: true
+    storageClassName: local-path
+    size: 1Gi
+
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: traefik
+    hosts:
+      - grafana.tryonmagic.com
