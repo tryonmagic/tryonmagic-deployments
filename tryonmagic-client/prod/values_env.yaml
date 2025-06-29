@@ -13,4 +13,5 @@ deployment:
       S3_BUCKET: tryonmagic
       S3_ENDPOINT: https://s3.ap-southeast-1.wasabisys.com
       DATABASE_URL: postgresql://neondb_owner:npg_M7zkZRyg0osw@ep-divine-brook-a1qskcvi-pooler.ap-southeast-1.aws.neon.tech/shopify?sslmode=require
+      HOST: app.tryonmagic.com
 
