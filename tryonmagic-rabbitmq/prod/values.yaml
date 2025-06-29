@@ -19,8 +19,6 @@ rabbitmq:
      memory: "512Mi"
   metrics:
     enabled: true
-    serviceMonitor:
-      enabled: true
   pdb:
     create: true
     minAvailable: "1"
