@@ -32,8 +32,8 @@ deployment:
       GOOGLE_CLIENT_ID: yourapps.googleusercontent.com
       GOOGLE_CLIENT_SECRET: thisisasamplesecret
       REDIRECT_URL: http://localhost:3000/v1/auth/google-callback
-      SHOPIFY_API_KEY: e7dec7c7c27e6a524aad9bbdad304045
-      SHOPIFY_API_SECRET: 5a620e3172692dd8e84a0c29af074c89
+      SHOPIFY_API_KEY: 89fdcc9c35411de02394ed6192badc29
+      SHOPIFY_API_SECRET: 8806678734712db0bc88ef6371277400
       SHOPIFY_APP_SCOPES: read_customers,write_products
 
       RABBITMQ_CONNECTION_URI: amqp://rabbitmq:oikire-modhumodhu@prod-tryonmagic-rabbitmq:5672
