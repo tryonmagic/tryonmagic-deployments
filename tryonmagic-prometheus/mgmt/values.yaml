@@ -3,6 +3,7 @@ kube-prometheus-stack:
     prometheusSpec:
       storageSpec:
         emptyDir: {}
+      serviceMonitorSelectorNilUsesHelmValues: false
   alertmanager:
     enabled: false
   prometheusOperator:
@@ -11,3 +12,5 @@ kube-prometheus-stack:
     enabled: true
   kubeStateMetrics:
     enabled: true
+  grafana:
+    enabled: false
