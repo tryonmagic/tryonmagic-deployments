@@ -21,3 +21,6 @@ rabbitmq:
     enabled: true
     serviceMonitor:
       enabled: true
+  pdb:
+    create: true
+    minAvailable: "1"
