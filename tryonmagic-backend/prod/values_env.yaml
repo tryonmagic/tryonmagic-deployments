@@ -8,10 +8,10 @@ deployment:
       APP_URL: https://api.tryonmagic.com
 
       # database configuration
-      DB_HOST: ep-divine-brook-a1qskcvi-pooler.ap-southeast-1.aws.neon.tech
+      DB_HOST: ep-small-river-a18su24z-pooler.ap-southeast-1.aws.neon.tech
       DB_USER: neondb_owner
-      DB_PASSWORD: npg_M7zkZRyg0osw
-      DB_NAME: neondb
+      DB_PASSWORD: npg_QNwt14nyJHph
+      DB_NAME: tryonmagic
       DB_PORT: 5432
       # JWT
       JWT_SECRET: thisisasamplesecret
