@@ -17,11 +17,11 @@ deployment:
         cpu: "70"
         memory: "70"
       cpu:
-        request: 100m
-        limit: 500m
+        request: 250m
+        limit: 1000m
       memory:
-        request: 192Mi
-        limit: 384Mi
+        request: 512Mi
+        limit: 2048Mi
     terminate:
       grace_period: "30"
 
