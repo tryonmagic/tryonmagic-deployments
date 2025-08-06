@@ -1,0 +1,10 @@
+apiVersion: v2
+name: mgmt-tryonmagic-csi-driver
+version: 0.1.0
+description: Helm chart for deploying secrets-store-csi-driver with syncSecret enabled
+
+home: https://github.com/kubernetes-sigs/secrets-store-csi-driver
+
+sources:
+  - https://github.com/kubernetes-sigs/secrets-store-csi-driver
+

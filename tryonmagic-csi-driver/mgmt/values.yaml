@@ -1,0 +1,5 @@
+# Default values for tryonmagic-csi-driver Helm chart
+secrets-store-csi-driver:
+  syncSecret:
+    enabled: true
+
