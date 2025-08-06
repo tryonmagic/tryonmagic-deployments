@@ -1,5 +1,5 @@
 apiVersion: v2
-name: mgmt-tryonmagic-csi-driver
+name: secrets-store-csi-driver
 description: Helm chart for deploying secrets-store-csi-driver with syncSecret enabled
 
 type: application
