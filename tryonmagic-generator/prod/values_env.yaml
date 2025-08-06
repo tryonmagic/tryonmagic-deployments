@@ -10,7 +10,7 @@ deployment:
       REM_BG_MODEL_NAME: u2net
       #birefnet-general
       
-      GCP_PROJECT_ID: photopp
+      GCP_PROJECT_ID: tryonmagic
       FASHN_AI_API_KEY: fa-F6KzD9N3F29I-FyRyxpI04oOVNEwAx4uixWcy
       PORT: 8000
       S3_SECRET_KEY: 680d1eEvVpOBeb5YMq2CEzu40WwPy9TXwp0S779z
