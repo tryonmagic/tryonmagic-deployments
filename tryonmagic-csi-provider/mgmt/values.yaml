@@ -1,0 +1,7 @@
+vault-csi-provider:
+  server:
+    enabled: false
+  injector:
+    enabled: false
+  csi:
+    enabled: true

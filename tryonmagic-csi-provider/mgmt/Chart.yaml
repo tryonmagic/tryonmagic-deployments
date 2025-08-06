@@ -1,0 +1,10 @@
+apiVersion: v2
+name: vault-csi-provider
+description: Helm chart for deploying HashiCorp Vault CSI provider
+type: application
+version: 1.0.0
+
+dependencies:
+  - name: vault-csi-provider
+    version: 1.5.1
+    repository: "https://helm.releases.hashicorp.com"
