@@ -1,0 +1,93 @@
+# Global settings for your deployment
+
+# Public endpoint
+host: mattermost.example.com
+
+# TLS configuration
+# - autoGenerateTlsSecretName: when true, automatically compute a TLS secret name from host/fullname
+# - If you disable auto-generate, set tlsSecretName to reference an existing TLS secret
+# - tlsSecretNameStrategy selects how the name is generated (when auto-generate is enabled)
+tls:
+  autoGenerateTlsSecretName: true
+  # Accepted values: host, fullname (default: host)
+  tlsSecretNameStrategy: host
+
+# Operator subchart
+mattermostOperator:
+  enabled: true
+  # Usually no extra config needed; see operator chart values for advanced tuning
+
+# Mattermost application settings
+mattermost:
+  name: mm
+  namespace: ""              # default to release namespace
+  image:
+    repository: mattermost/mattermost-enterprise-edition
+    tag: latest
+
+  # Ingress managed by the Operator via the CR
+  ingress:
+    enabled: true
+    host: "{{ .Values.host }}"
+
+  # App config mapped into config.json via the CR
+  # Only core/critical settings here; add more as needed.
+  config:
+    ServiceSettings:
+      SiteURL: "https://{{ .Values.host }}"
+    SqlSettings:
+      # DataSource is injected from the db DSN secret by template (see secret-db-dsn.yaml)
+      DataSource: ""
+    # FileSettings are simplified and computed in the template.
+    # Only the storage driver is fixed here; bucket/endpoint/region and SSL are derived
+    # from whether MinIO is enabled or external S3 is configured.
+    FileSettings: {}
+
+
+  # Optional extra env
+  extraEnv: []
+
+# Database: enable in-cluster PostgreSQL or set external settings
+postgresql:
+  enabled: true
+  auth:
+    username: mmuser
+    database: mattermost
+  primary:
+    persistence:
+      enabled: true
+      size: 2Gi
+  metrics:
+    enabled: false
+  # If using cloud storage classes, set storageClass here
+  # primary.persistence.storageClass: ""
+
+
+# Object Store: enable in-cluster MinIO or set external S3
+minio:
+  enabled: true
+  mode: standalone         # or distributed
+  defaultBuckets: "mattermost"  # automatically created on first boot
+  # Service address Mattermost will use (cluster-internal)
+  serviceEndpoint: "minio"
+  servicePort: 9000
+  region: us-east-1
+
+  # Bitnami/minio values
+  auth:
+    rootUser: "mmminio"
+  persistence:
+    enabled: true
+    size: 5Gi
+  resources: {}
+
+
+
+# Pod resources for Mattermost app (tuned via Operator deployment)
+resources:
+  requests:
+    cpu: 500m
+    memory: 1Gi
+  limits:
+    cpu: "1"
+    memory: 2Gi
