@@ -259,7 +259,7 @@ Notes:
 This chart now uses the official MinIO Helm chart as a dependency. Ensure you add the MinIO repo before building dependencies:
 
 ```bash
-helm repo add minio https://helm.min.io/
+helm repo add minio https://charts.min.io/
 helm repo update
 ```
 
