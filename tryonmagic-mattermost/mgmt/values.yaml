@@ -72,6 +72,13 @@ minio:
   serviceEndpoint: "minio"
   servicePort: 9000
   region: us-east-1
+  # Disable the legacy MinIO Object Browser to avoid pulling a non-existent image
+  objectBrowser:
+    enabled: false
+
+  # Pin MinIO image to a known-valid Bitnami tag to avoid NotFound errors
+  image:
+    tag: "2025.7.23-debian-12-r0"
 
   # Bitnami/minio values
   auth:
