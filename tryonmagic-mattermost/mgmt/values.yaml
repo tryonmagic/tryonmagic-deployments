@@ -82,8 +82,8 @@ minio:
 # Pod resources for Mattermost app (tuned via Operator deployment)
 resources:
   requests:
-    cpu: 500m
-    memory: 1Gi
+    cpu: 100m
+    memory: 128Mi
   limits:
-    cpu: "1"
-    memory: 2Gi
+    cpu: 200m
+    memory: 248Mi
