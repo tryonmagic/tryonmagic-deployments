@@ -29,6 +29,7 @@ mattermost:
   ingress:
     enabled: true
     host: "{{ .Values.host }}"
+    className: traefik
 
   # App config mapped into config.json via the CR
   # Only core/critical settings here; add more as needed.
