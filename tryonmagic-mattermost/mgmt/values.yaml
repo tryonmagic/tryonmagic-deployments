@@ -75,7 +75,13 @@ minio:
   persistence:
     enabled: true
     size: 5Gi
-  resources: {}
+  resources:
+    requests:
+      cpu: 50m
+      memory: 128Mi
+    limits:
+      cpu: 200m
+      memory: 512Mi
 
 
 
