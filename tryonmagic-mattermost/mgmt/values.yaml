@@ -67,18 +67,11 @@ postgresql:
 minio:
   enabled: true
   mode: standalone         # or distributed
-  defaultBuckets: "mattermost"  # automatically created on first boot
+  defaultBuckets: "mattermost"
   # Service address Mattermost will use (cluster-internal)
   serviceEndpoint: "minio"
   servicePort: 9000
   region: us-east-1
-  # Disable the legacy MinIO Object Browser to avoid pulling a non-existent image
-  objectBrowser:
-    enabled: false
-
-  # Bitnami/minio values
-  auth:
-    rootUser: "mmminio"
   persistence:
     enabled: true
     size: 5Gi

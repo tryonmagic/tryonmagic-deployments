@@ -226,3 +226,41 @@ Note: Ensure a TLS secret with the generated name exists in the namespace. Typic
 - When `minio.enabled=true`, all Mattermost S3 settings (bucket, endpoint, region, credentials) are sourced from the MinIO subchart. The chart discovers the credentials from the Bitnami MinIO Secret and wires them into the `mm-s3` Secret. The Mattermost CR’s `fileStore` and `FileSettings` are rendered from MinIO values.
 - When `minio.enabled=false` and `externalS3.enabled=true`, the S3 settings come from `externalS3` and `mattermost.s3` values.
 - Validation: the chart now fails rendering if both `minio.enabled` and `externalS3.enabled` are set to `true`, or if both are `false`. Enable exactly one object store.
+
+
+
+## Should we commit Chart.lock and vendored charts/ here?
+Short answer: Not required. Since this chart uses upstream dependencies, you can rely on Helm to fetch them at deploy time and avoid committing `Chart.lock` and the `charts/` directory.
+
+Why you might avoid committing them:
+- Simpler repo: fewer large binary blobs; cleaner diffs.
+- Always-resolved dependencies: your CI/Argo pipeline can run `helm dependency update` to fetch latest that match your constraints in Chart.yaml.
+- Avoids accidental drift between lockfile and Chart.yaml.
+
+When you might still vendor/lock:
+- Air-gapped/offline clusters.
+- Strict reproducibility without network access.
+- Known-good frozen set for change-controlled environments.
+
+Recommended workflow (non-vendored):
+1) Ensure repos are configured in CI/Argo: `helm repo add mattermost https://helm.mattermost.com && helm repo add bitnami https://charts.bitnami.com/bitnami && helm repo update`
+2) Resolve dependencies at build/render time: `helm dependency update ./tryonmagic-mattermost/mgmt`
+3) Render/install as usual: `helm template` or `helm install/upgrade`
+
+Version constraints:
+- Set sensible version ranges in `Chart.yaml` dependencies (e.g., `^1.0.0`) instead of `*` if you want to avoid breaking changes while not pinning exact versions.
+
+Notes:
+- This repo includes a `.gitignore` in `tryonmagic-mattermost/mgmt` to exclude `Chart.lock` and `charts/` from future commits.
+- If you choose to vendor later (e.g., for air‑gapped), remove those lines from `.gitignore` and commit the lockfile and `charts/` directory.
+
+
+## Note on MinIO Helm repository
+This chart now uses the official MinIO Helm chart as a dependency. Ensure you add the MinIO repo before building dependencies:
+
+```bash
+helm repo add minio https://helm.min.io/
+helm repo update
+```
+
+If you already had the Bitnami MinIO repo configured previously, it is no longer used for this chart. PostgreSQL still uses the Bitnami repository.

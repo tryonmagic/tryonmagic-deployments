@@ -18,5 +18,5 @@ dependencies:
 
   - name: minio
     version: "*"
-    repository: https://charts.bitnami.com/bitnami
+    repository: https://helm.min.io/
     condition: minio.enabled

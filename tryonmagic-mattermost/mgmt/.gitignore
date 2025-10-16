@@ -1,0 +1,3 @@
+# Ignore vendored Helm dependencies and lock file (we rely on dependency resolution)
+charts/
+Chart.lock
