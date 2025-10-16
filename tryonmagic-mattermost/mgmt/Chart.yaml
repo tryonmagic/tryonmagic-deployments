@@ -1,0 +1,22 @@
+apiVersion: v2
+name: tryonmagic-mattermost
+version: 0.1.0
+description: Umbrella chart to install Mattermost Operator, Mattermost app, PostgreSQL, and MinIO
+kubeVersion: ">=1.24.0-0"
+type: application
+
+dependencies:
+  - name: mattermost-operator
+    version: "*"
+    repository: https://helm.mattermost.com
+    condition: mattermostOperator.enabled
+
+  - name: postgresql
+    version: "*"
+    repository: https://charts.bitnami.com/bitnami
+    condition: postgresql.enabled
+
+  - name: minio
+    version: "*"
+    repository: https://charts.bitnami.com/bitnami
+    condition: minio.enabled
