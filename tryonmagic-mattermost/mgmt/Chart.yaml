@@ -7,16 +7,16 @@ type: application
 
 dependencies:
   - name: mattermost-operator
-    version: "*"
+    version: "1.0.4"
     repository: https://helm.mattermost.com
     condition: mattermostOperator.enabled
 
   - name: postgresql
-    version: "*"
+    version: "18.0.15"
     repository: https://charts.bitnami.com/bitnami
     condition: postgresql.enabled
 
   - name: minio
-    version: "*"
+    version: "5.4.0"
     repository: https://charts.min.io/
     condition: minio.enabled

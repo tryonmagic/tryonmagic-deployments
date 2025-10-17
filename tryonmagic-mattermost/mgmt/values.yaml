@@ -1,58 +1,3 @@
-# Global settings for your deployment
-
-# Public endpoint
-host: mattermost.tryonmagic.com
-
-# TLS configuration
-# - autoGenerateTlsSecretName: when true, automatically compute a TLS secret name from host/fullname
-# - If you disable auto-generate, set tlsSecretName to reference an existing TLS secret
-# - tlsSecretNameStrategy selects how the name is generated (when auto-generate is enabled)
-tls:
-  autoGenerateTlsSecretName: true
-  # Accepted values: host, fullname (default: host)
-  tlsSecretNameStrategy: host
-
-# Operator subchart
-mattermostOperator:
-  enabled: true
-  # Usually no extra config needed; see operator chart values for advanced tuning
-
-# Mattermost application settings
-mattermost:
-  # CR apiVersion for the Mattermost resource.
-  # Use mattermost.com/v1beta1 if available in your cluster (as per current operator CRDs).
-  apiVersion: mattermost.com/v1beta1
-  name: mm
-  namespace: ""              # default to release namespace
-  image:
-    # Default to Team Edition (no license required). You can switch to EE by changing the repository.
-    repository: mattermost/mattermost-team-edition
-    tag: latest
-
-  # Ingress managed by the Operator via the CR
-  ingress:
-    enabled: true
-    host: "{{ .Values.host }}"
-    className: traefik
-
-  # App config mapped into config.json via the CR
-  # Only core/critical settings here; add more as needed.
-  config:
-    ServiceSettings:
-      SiteURL: "https://{{ .Values.host }}"
-    SqlSettings:
-      # DataSource is injected from the db DSN secret by template (see secret-db-dsn.yaml)
-      DataSource: ""
-    # FileSettings are simplified and computed in the template.
-    # Only the storage driver is fixed here; bucket/endpoint/region and SSL are derived
-    # from whether MinIO is enabled or external S3 is configured.
-    FileSettings: {}
-
-
-  # Optional extra env
-  extraEnv: []
-
-# Database: enable in-cluster PostgreSQL or set external settings
 postgresql:
   enabled: true
   auth:
@@ -64,14 +9,10 @@ postgresql:
       size: 2Gi
   metrics:
     enabled: false
-  # If using cloud storage classes, set storageClass here
-  # primary.persistence.storageClass: ""
 
-
-# Object Store: enable in-cluster MinIO or set external S3
 minio:
   enabled: true
-  mode: standalone         # or distributed
+  mode: standalone
   defaultBuckets: "mattermost"
   # Service address Mattermost will use (cluster-internal)
   serviceEndpoint: "minio"
@@ -87,14 +28,3 @@ minio:
     limits:
       cpu: 200m
       memory: 512Mi
-
-
-
-# Pod resources for Mattermost app (tuned via Operator deployment)
-resources:
-  requests:
-    cpu: 100m
-    memory: 128Mi
-  limits:
-    cpu: 200m
-    memory: 248Mi
