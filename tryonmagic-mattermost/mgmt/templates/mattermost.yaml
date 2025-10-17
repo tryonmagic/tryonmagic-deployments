@@ -34,6 +34,8 @@
 {{- $fileDriver := default "amazons3" $mm.config.FileSettings.DriverName -}}
 {{- /* Use the required Mattermost CR apiVersion. Default to mattermost.com/v1beta1 to match cluster CRDs. */ -}}
 {{- $apiFinal := default "mattermost.com/v1beta1" $mm.apiVersion -}}
+{{- $crd := (lookup "apiextensions.k8s.io/v1" "CustomResourceDefinition" "" "mattermosts.mattermost.com") -}}
+{{- if $crd }}
 apiVersion: {{ $apiFinal }}
 kind: Mattermost
 metadata:
@@ -117,3 +119,5 @@ spec:
         secretKeyRef:
           name: mm-s3
           key: AWS_S3_BUCKET
+
+{{- end }}
