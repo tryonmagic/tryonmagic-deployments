@@ -264,3 +264,30 @@ helm repo update
 ```
 
 If you already had the Bitnami MinIO repo configured previously, it is no longer used for this chart. PostgreSQL still uses the Bitnami repository.
+
+
+## Operator CR apiVersion (v1alpha1 vs v1beta1)
+This chart renders a Mattermost Custom Resource. Different operator versions expose different API groups/versions:
+- Older operator: installation.mattermost.com/v1alpha1 (default in this chart)
+- Newer operator: mattermost.com/v1beta1 (see: https://github.com/mattermost/mattermost-operator/blob/master/docs/mattermost_v1beta1_crd.md)
+
+Select the CR apiVersion via values:
+
+```yaml
+mattermost:
+  apiVersion: installation.mattermost.com/v1alpha1  # or mattermost.com/v1beta1
+```
+
+If Argo/Helm applies the CR before the CRD exists, ensure your operator dependency syncs first or enable SkipDryRunOnMissingResource (already annotated in the CR template) so Argo can apply it once the CRD is installed.
+
+## Team Edition vs Enterprise Edition
+- Team Edition (image: mattermost/mattermost-team-edition) does not require a license.
+- Enterprise Edition (image: mattermost/mattermost-enterprise-edition) can run without a license with core features and will unlock EE features once you apply a license in the System Console.
+
+You can switch the image in values:
+```yaml
+mattermost:
+  image:
+    repository: mattermost/mattermost-team-edition  # or mattermost/mattermost-enterprise-edition
+    tag: latest
+```
