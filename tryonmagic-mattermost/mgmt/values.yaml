@@ -19,15 +19,14 @@ mattermostOperator:
 
 # Mattermost application settings
 mattermost:
-  # CR apiVersion for the Mattermost resource. Use installation.mattermost.com/v1alpha1 for older operator CRDs,
-  # or mattermost.com/v1beta1 for newer operator per https://github.com/mattermost/mattermost-operator/blob/master/docs/mattermost_v1beta1_crd.md
-  apiVersion: mattermosts.installation.mattermost.com
+  # CR apiVersion for the Mattermost resource.
+  # Use mattermost.com/v1beta1 if available in your cluster (as per current operator CRDs).
+  apiVersion: mattermost.com/v1beta1
   name: mm
   namespace: ""              # default to release namespace
   image:
-    # Tip: Team Edition does not require a license (image: mattermost/mattermost-team-edition).
-    # Enterprise Edition can run without a license for core features and unlocks EE features when a license is applied later.
-    repository: mattermost/mattermost-enterprise-edition
+    # Default to Team Edition (no license required). You can switch to EE by changing the repository.
+    repository: mattermost/mattermost-team-edition
     tag: latest
 
   # Ingress managed by the Operator via the CR

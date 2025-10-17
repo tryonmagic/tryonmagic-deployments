@@ -32,14 +32,8 @@
 {{- $replicas := default 2 $mm.replicas -}}
 {{- $sqlDriver := default "postgres" $mm.config.SqlSettings.DriverName -}}
 {{- $fileDriver := default "amazons3" $mm.config.FileSettings.DriverName -}}
-{{- /* Map shorthand CRD names to valid apiVersions */ -}}
-{{- $apiRaw := default "mattermosts.installation.mattermost.com/v1alpha1" $mm.apiVersion -}}
-{{- $apiFinal := $apiRaw -}}
-{{- if eq $apiRaw "mattermosts.installation.mattermost.com" -}}
-  {{- $apiFinal = "mattermosts.installation.mattermost.com/v1alpha1" -}}
-{{- else if eq $apiRaw "mattermosts.mattermost.com" -}}
-  {{- $apiFinal = "mattermost.com/v1beta1" -}}
-{{- end -}}
+{{- /* Use the required Mattermost CR apiVersion. Default to mattermost.com/v1beta1 to match cluster CRDs. */ -}}
+{{- $apiFinal := default "mattermost.com/v1beta1" $mm.apiVersion -}}
 apiVersion: {{ $apiFinal }}
 kind: Mattermost
 metadata:
