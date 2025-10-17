@@ -291,3 +291,14 @@ mattermost:
     repository: mattermost/mattermost-team-edition  # or mattermost/mattermost-enterprise-edition
     tag: latest
 ```
+
+
+## CRD installation strategy (no extra CRD file)
+We do not vendor Mattermost CRDs in this umbrella chart. The operator dependency is responsible for installing CRDs. In GitOps (Argo CD), ordering ensures the CRD is available before the Mattermost Custom Resource is applied.
+
+- The Mattermost Operator is installed first by dependency ordering/sync wave 0 (app-level).
+- The Mattermost CR includes:
+  - argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+  - argocd.argoproj.io/sync-wave: "1"
+
+This avoids duplication and RepeatedResourceWarning from Argo. If your cluster already has the CRD (e.g., via a platform operator), this chart will not attempt to re-install it.

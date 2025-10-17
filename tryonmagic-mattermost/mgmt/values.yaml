@@ -21,7 +21,7 @@ mattermostOperator:
 mattermost:
   # CR apiVersion for the Mattermost resource. Use installation.mattermost.com/v1alpha1 for older operator CRDs,
   # or mattermost.com/v1beta1 for newer operator per https://github.com/mattermost/mattermost-operator/blob/master/docs/mattermost_v1beta1_crd.md
-  apiVersion: installation.mattermost.com/v1alpha1
+  apiVersion: mattermosts.installation.mattermost.com
   name: mm
   namespace: ""              # default to release namespace
   image:
