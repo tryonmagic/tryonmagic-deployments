@@ -1,0 +1,75 @@
+{{- $ns := .Release.Namespace -}}
+{{- $mm := .Values.mattermost -}}
+apiVersion: mattermost.com/v1beta1
+kind: Mattermost
+metadata:
+  name: {{ $mm.name }}
+  namespace: {{ default $ns $mm.namespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  image: {{ $mm.image.repository }}:{{ $mm.image.tag }}
+  replicas: {{ $mm.replicas | default 2 }}
+  ingress:
+    enabled: {{ $mm.ingress.enabled }}
+    host: {{ $mm.ingress.host | quote }}
+    class: {{ $mm.ingress.className | quote }}
+  database:
+    external:
+      secret: mm-db-dsn
+  fileStore:
+    external:
+      s3:
+        secret: mm-s3
+        bucket: {{ $mm.fileStore.bucket | quote }}
+        region: {{ $mm.fileStore.region | quote }}
+        endpoint: {{ $mm.fileStore.endpoint | quote }}
+  config:
+    ServiceSettings:
+      SiteURL: {{ $mm.config.ServiceSettings.SiteURL | quote }}
+    SqlSettings:
+      DriverName: "postgres"
+      DataSource: "$(DATASOURCE)"
+    FileSettings:
+      DriverName: "amazons3"
+      AmazonS3Bucket: {{ $mm.fileStore.bucket | quote }}
+      AmazonS3Endpoint: {{ $mm.fileStore.endpoint | quote }}
+      AmazonS3Region: {{ $mm.fileStore.region | quote }}
+      AmazonS3SSL: false
+  extraEnvVars:
+    - name: DATASOURCE
+      valueFrom:
+        secretKeyRef:
+          name: mm-db-dsn
+          key: DATASOURCE
+    - name: AWS_ACCESS_KEY_ID
+      valueFrom:
+        secretKeyRef:
+          name: mm-s3
+          key: AWS_ACCESS_KEY_ID
+    - name: AWS_SECRET_ACCESS_KEY
+      valueFrom:
+        secretKeyRef:
+          name: mm-s3
+          key: AWS_SECRET_ACCESS_KEY
+    - name: AWS_REGION
+      valueFrom:
+        secretKeyRef:
+          name: mm-s3
+          key: AWS_REGION
+    - name: AWS_S3_FORCE_PATH_STYLE
+      valueFrom:
+        secretKeyRef:
+          name: mm-s3
+          key: AWS_S3_FORCE_PATH_STYLE
+    - name: AWS_S3_ENDPOINT
+      valueFrom:
+        secretKeyRef:
+          name: mm-s3
+          key: AWS_S3_ENDPOINT
+    - name: AWS_S3_BUCKET
+      valueFrom:
+        secretKeyRef:
+          name: mm-s3
+          key: AWS_S3_BUCKET
+

@@ -14,7 +14,6 @@ minio:
   enabled: true
   mode: standalone
   defaultBuckets: "mattermost"
-  # Service address Mattermost will use (cluster-internal)
   serviceEndpoint: "minio"
   servicePort: 9000
   region: us-east-1
@@ -28,3 +27,21 @@ minio:
     limits:
       cpu: 200m
       memory: 512Mi
+
+mattermost:
+  name: mm
+  image:
+    repository: mattermost/mattermost-team-edition
+    tag: latest
+  replicas: 1
+  ingress:
+    enabled: true
+    host: mattermost.example.com
+    className: traefik
+  fileStore:
+    bucket: mattermost
+    region: us-east-1
+    endpoint: minio:9000
+  config:
+    ServiceSettings:
+      SiteURL: "https://mattermost.tryonmagic.com"
