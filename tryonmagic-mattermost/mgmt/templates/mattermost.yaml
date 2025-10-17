@@ -32,7 +32,7 @@
 {{- $replicas := default 2 $mm.replicas -}}
 {{- $sqlDriver := default "postgres" $mm.config.SqlSettings.DriverName -}}
 {{- $fileDriver := default "amazons3" $mm.config.FileSettings.DriverName -}}
-apiVersion: mattermost.com/v1alpha1
+apiVersion: installation.mattermost.com/v1alpha1
 kind: Mattermost
 metadata:
   name: {{ $mm.name }}

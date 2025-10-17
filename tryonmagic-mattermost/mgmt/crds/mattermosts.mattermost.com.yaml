@@ -1,9 +1,9 @@
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
-  name: mattermosts.mattermost.com
+  name: mattermosts.installation.mattermost.com
 spec:
-  group: mattermost.com
+  group: installation.mattermost.com
   scope: Namespaced
   names:
     plural: mattermosts
