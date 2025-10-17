@@ -1,6 +1,6 @@
 {{- $ns := .Release.Namespace -}}
 {{- $mm := .Values.mattermost -}}
-apiVersion: mattermost.com/v1beta1
+apiVersion: mattermost.com/v1alpha1
 kind: Mattermost
 metadata:
   name: {{ $mm.name }}
