@@ -6,11 +6,6 @@ kubeVersion: ">=1.24.0-0"
 type: application
 
 dependencies:
-  - name: mattermost-operator
-    version: "1.0.4"
-    repository: https://helm.mattermost.com
-    condition: mattermostOperator.enabled
-
   - name: postgresql
     version: "18.0.15"
     repository: https://charts.bitnami.com/bitnami
