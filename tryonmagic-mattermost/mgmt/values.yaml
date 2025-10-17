@@ -36,7 +36,7 @@ mattermost:
   replicas: 1
   ingress:
     enabled: true
-    host: mattermost.example.com
+    host: mattermost.tryonmagic.com
     className: traefik
   fileStore:
     bucket: mattermost
