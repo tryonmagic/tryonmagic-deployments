@@ -27,3 +27,6 @@ minio:
     limits:
       cpu: 200m
       memory: 512Mi
+
+mattermost-operator:
+  enabled: true
