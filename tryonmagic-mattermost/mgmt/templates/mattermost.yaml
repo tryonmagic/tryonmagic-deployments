@@ -6,7 +6,7 @@ metadata:
   name: {{ $mm.name }}
   namespace: {{ default $ns $mm.namespace }}
   annotations:
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   image: {{ $mm.image.repository }}:{{ $mm.image.tag }}
   replicas: {{ $mm.replicas | default 2 }}
