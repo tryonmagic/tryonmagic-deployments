@@ -33,10 +33,10 @@
 {{- $sqlDriver := default "postgres" $mm.config.SqlSettings.DriverName -}}
 {{- $fileDriver := default "amazons3" $mm.config.FileSettings.DriverName -}}
 {{- /* Map shorthand CRD names to valid apiVersions */ -}}
-{{- $apiRaw := default "installation.mattermost.com/v1alpha1" $mm.apiVersion -}}
+{{- $apiRaw := default "mattermosts.installation.mattermost.com/v1alpha1" $mm.apiVersion -}}
 {{- $apiFinal := $apiRaw -}}
 {{- if eq $apiRaw "mattermosts.installation.mattermost.com" -}}
-  {{- $apiFinal = "installation.mattermost.com/v1alpha1" -}}
+  {{- $apiFinal = "mattermosts.installation.mattermost.com/v1alpha1" -}}
 {{- else if eq $apiRaw "mattermosts.mattermost.com" -}}
   {{- $apiFinal = "mattermost.com/v1beta1" -}}
 {{- end -}}
