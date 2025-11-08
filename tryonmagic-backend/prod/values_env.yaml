@@ -34,9 +34,9 @@ deployment:
       REDIRECT_URL: http://localhost:3000/v1/auth/google-callback
 
       #shopify configuration
-      SHOPIFY_API_KEY: 18353aceff3d63b3009f9a0929b687b6
-      SHOPIFY_API_SECRET: 01e0e956821ce911d81ba9b626c63688
-      SHOPIFY_APP_SCOPES: read_customers,write_products
+      SHOPIFY_API_KEY: ff51e32646cbcdd9e38146c563032bea
+      SHOPIFY_API_SECRET: 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
+      SHOPIFY_APP_SCOPES: 
 
       RABBITMQ_CONNECTION_URI: amqps://mygnmnap:v95K4k2yEyawSJ2l5r_QmeCaXv_f0Fop@possum.lmq.cloudamqp.com/mygnmnap
 
