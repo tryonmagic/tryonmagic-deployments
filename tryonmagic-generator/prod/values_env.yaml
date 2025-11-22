@@ -20,3 +20,4 @@ deployment:
       REDIS_URL: redis://prod-tryonmagic-redis-master:6379
       GCP_ACCESS_TOKEN: ya29.a0AZYkNZh7RPAoP3p1VHWMFKO0T7l16eC81PLfZ_2x7NNSr0ZlBv8NN63xfTpviDaN0iNWOIXJvDaLDry7djQSA4MewK1eBjPmHqtGyZ-oMAxgQl5IMpNBsfp24YzmRVhSAWQfrwdcx0GyEbYH5Vvgpf2wMwsPOa0mMz0Toea2oW0SDWc7aCgYKAQ4SARYSFQHGX2MiJQohKNakXXb_Q2HPxjorIA0183
       GRPC_SERVER: prod-tryonmagic-backend:8001
+      GEMINI_API_KEY: AIzaSyACH6CaHpBLRiYgb7kgrewadq6TBlduk9Q
