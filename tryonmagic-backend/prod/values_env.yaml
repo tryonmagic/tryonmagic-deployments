@@ -50,7 +50,7 @@ deployment:
       S3_ENDPOINT: https://s3.ap-southeast-1.wasabisys.com
 
       WEBHOOK_BASE_URL: https://api.tryonmagic.com/v1/webhooks
-      FASHN_AI_API_KEY: fa-F6KzD9N3F29I-FyRyxpI04oOVNEwAx4uixWcy
+      FASHN_AI_API_KEY: fa-95BDZBHWcvwu-GiHFcglgv1A2oiANTXaieEWJ
       CLOUDINARY_URL: cloudinary://297253973661629:qlkTfkud6GjiLeCFtWS3d0EKZ48@deqdg3lzx
       GEMINI_API_KEY: AIzaSyDQ3Y_iMQrbpEROMY10O3PmPOQJ2amEYPs
       VTON_SERVICE: fashn
